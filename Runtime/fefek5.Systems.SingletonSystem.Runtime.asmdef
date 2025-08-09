@@ -1,0 +1,14 @@
+{
+    "name": "fefek5.Systems.SingletonSystem.Runtime",
+    "rootNamespace": "",
+    "references": ["GUID:7e20ec94f647e5949b4d860cfde39a1f"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
