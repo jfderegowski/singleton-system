@@ -1,11 +1,9 @@
 {
-    "name": "fefek5.Systems.SingletonSystem.Editor",
+    "name": "fefek5.SingletonSystem.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:26ec800c5551ad547a45c9ce3e908543",
-        "GUID:dcb6703bbf1c9124f9784957aa222c18",
-        "GUID:396257723a08def4c852a9ce37d5d5f0",
-        "GUID:7e20ec94f647e5949b4d860cfde39a1f"
+        "GUID:398f5281d930e4948928c7071492475e",
+        "GUID:26ec800c5551ad547a45c9ce3e908543"
     ],
     "includePlatforms": [
         "Editor"

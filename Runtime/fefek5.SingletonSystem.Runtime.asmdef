@@ -1,7 +1,9 @@
 {
-    "name": "fefek5.Systems.SingletonSystem.Runtime",
+    "name": "fefek5.SingletonSystem.Runtime",
     "rootNamespace": "",
-    "references": ["GUID:7e20ec94f647e5949b4d860cfde39a1f"],
+    "references": [
+        "GUID:398f5281d930e4948928c7071492475e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

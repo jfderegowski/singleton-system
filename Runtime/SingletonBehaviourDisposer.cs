@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace fefek5.Systems.SingletonSystem.Runtime
+namespace Runtime
 {
     /// <summary>
     /// Disposes of all singleton behaviours in this game object when it is destroyed.

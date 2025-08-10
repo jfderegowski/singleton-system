@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using fefek5.Systems.ResourcesScriptableObjectSystem.Runtime;
 using UnityEngine;
 
-namespace fefek5.Systems.SingletonSystem.Runtime
+namespace Runtime
 {
     /// <summary>
     /// Collection of all singletons.

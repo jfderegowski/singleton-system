@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace fefek5.Systems.SingletonSystem.Runtime
+namespace Runtime
 {
     /// <summary>
     /// Base class for scriptable object singletons.

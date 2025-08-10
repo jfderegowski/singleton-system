@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace fefek5.Systems.SingletonSystem.Runtime
+namespace Runtime
 {
     public class SingletonRawClass<T> where T : SingletonRawClass<T>
     {
