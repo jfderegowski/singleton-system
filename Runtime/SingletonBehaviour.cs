@@ -112,6 +112,9 @@ namespace Runtime
         /// </summary>
         internal sealed override void Initialize()
         {
+            if (Application.isPlaying && _instance && string.IsNullOrEmpty(_instance.gameObject.scene.name))
+                _instance = null;
+            
             if (_instance && _instance != this)
             {
                 Debug.LogWarning($"[SingletonSystem] Singleton of type {typeof(T).Name} already exists" +

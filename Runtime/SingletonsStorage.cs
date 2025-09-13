@@ -10,6 +10,44 @@ namespace Runtime
     public class SingletonsStorage : ResourcesScriptableObject<SingletonsStorage>
     {
         /// <summary>
+        /// The list of all singleton prefabs in the Resources folder.
+        /// </summary>
+        public static List<SingletonBehaviour> ResourcesSingletonBehaviours
+        {
+            get
+            {
+                if (_resourcesSingletonBehaviours == null)
+                {
+                    var allPrefabs = Resources.LoadAll<GameObject>("");
+
+                    var singletonPrefabs = allPrefabs
+                        .Select(prefab => prefab.GetComponent<SingletonBehaviour>())
+                        .Where(component => component != null)
+                        .ToList();
+
+                    singletonPrefabs = singletonPrefabs.Except(Instance.SingletonBehaviours).ToList();
+                    
+                    var duplicates = (from singleton in singletonPrefabs
+                        let count = singletonPrefabs.Count(other => singleton == other)
+                        where count > 1
+                        select singleton).ToList();
+                    
+                    foreach (var duplicate in duplicates)
+                        Debug.LogWarning($"[SingletonSystem] Duplicate singleton prefab in Resources: {duplicate}", duplicate);
+                    
+                    _resourcesSingletonBehaviours = singletonPrefabs.Except(duplicates).ToList();
+                }
+
+                return _resourcesSingletonBehaviours;
+            }
+        }
+        
+        /// <summary>
+        /// Backing field for ResourcesSingletonBehaviours.
+        /// </summary>
+        private static List<SingletonBehaviour> _resourcesSingletonBehaviours;
+        
+        /// <summary>
         /// The list of all singletons.
         /// </summary>
         [field: SerializeField, Tooltip("Add a singleton to the list and it will be initialized on startup.")]
@@ -105,7 +143,11 @@ namespace Runtime
             _spawnedSingletons.Clear();
             _singletonsToEnable.Clear();
             
-            foreach (var singletonPrefab in Instance.SingletonBehaviours)
+            var singletonsToSpawn = new List<SingletonBehaviour>();
+            singletonsToSpawn.AddRange(Instance.SingletonBehaviours);
+            singletonsToSpawn.AddRange(ResourcesSingletonBehaviours);
+            
+            foreach (var singletonPrefab in singletonsToSpawn)
             {
                 var prevEnabled = singletonPrefab.gameObject.activeSelf;
 
@@ -137,6 +179,9 @@ namespace Runtime
             else
             {
                 foreach (var singleton in Instance.SingletonBehaviours)
+                    if (singleton is T prefab) return prefab;
+                
+                foreach (var singleton in ResourcesSingletonBehaviours)
                     if (singleton is T prefab) return prefab;
             }
 
