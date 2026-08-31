@@ -108,7 +108,7 @@ namespace Runtime
         /// <summary>
         /// True if the singleton has an instance.
         /// </summary>
-        public bool HasInstance => _instance;
+        public static bool HasInstance => _instance;
         
         private static T _instance;
 
