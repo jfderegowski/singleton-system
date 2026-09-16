@@ -88,7 +88,7 @@ namespace Runtime
     /// Singleton class that can be inherited to create a singleton.
     /// </summary>
     /// <typeparam name="T">The type of the singleton.</typeparam>
-    public class SingletonBehaviour<T> : SingletonBehaviour where T : Component
+    public class SingletonBehaviour<T> : SingletonBehaviour where T : SingletonBehaviour<T>
     {
         /// <summary>
         /// The instance of the singleton.
@@ -131,6 +131,13 @@ namespace Runtime
             else if (!_instance) _instance = GetComponent<T>();
 
             base.Initialize();
+        }
+
+        internal override void Dispose()
+        {
+            base.Dispose();
+            
+            _instance = null;
         }
     }
 }

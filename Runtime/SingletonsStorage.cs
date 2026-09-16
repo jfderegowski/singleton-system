@@ -169,7 +169,7 @@ namespace Runtime
         /// </summary>
         /// <typeparam name="T">The type of the singleton.</typeparam>
         /// <returns></returns>
-        internal static T Get<T>() where T : Component
+        internal static T Get<T>() where T : SingletonBehaviour<T>
         {
             if (Application.isPlaying)
             {
