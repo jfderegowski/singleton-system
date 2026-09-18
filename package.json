@@ -4,6 +4,9 @@
   "displayName": "Singleton System",
   "description": "A simple singleton system for Unity. You can use Instance in Awake() method and in most cases wont have a null reference exception.",
   "unity": "6000.0",
+  "dependencies": {
+    "com.fefek5.resources-scriptable-object-singleton-system": "https://github.com/jfderegowski/resources-scriptable-object-singleton-system.git"
+  },
   "author": {
     "name": "fefek5",
     "url": "https://github.com/jfderegowski"
