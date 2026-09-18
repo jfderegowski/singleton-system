@@ -155,6 +155,8 @@ namespace Runtime
 
                 var singletonClone = Instantiate(singletonPrefab);
 
+                singletonPrefab.gameObject.SetActive(prevEnabled);
+                
                 singletonClone.Initialize();
                 
                 _singletonsToEnable.Add(singletonClone, prevEnabled);
